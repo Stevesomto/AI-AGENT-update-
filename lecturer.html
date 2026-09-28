@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecturer Portal — CoLearn AI</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="brand-mark">CL</span> CoLearn AI</a>
+    <div class="role-tag">Lecturer Portal</div>
+    <button class="nav-item active" data-view="dashboard"><span class="dot"></span> Dashboard</button>
+    <button class="nav-item" data-view="problems"><span class="dot"></span> Problems</button>
+    <button class="nav-item" data-view="groups"><span class="dot"></span> Groups</button>
+    <button class="nav-item" data-view="activity"><span class="dot"></span> Student Activity</button>
+    <button class="nav-item" data-view="insights"><span class="dot"></span> AI Insights</button>
+    <button class="nav-item" data-view="evaluations"><span class="dot"></span> Evaluations</button>
+    <button class="nav-item" data-view="resources"><span class="dot"></span> Resources</button>
+    <div class="sidebar-foot">
+      Signed in as Dr. Amara Nwosu
+      <a class="switch-portal" href="student.html">Switch to Student view →</a>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 id="topbar-title">Lecturer Dashboard</h1>
+      <div class="who">Dr. Amara Nwosu</div>
+    </div>
+
+    <!-- ===================== DASHBOARD ===================== -->
+    <section class="view active" id="view-dashboard">
+      <div class="grid grid-4" style="margin-bottom:20px;">
+        <div class="stat-tile"><div class="num" id="lec-total-students"></div><div class="lbl">Total students</div></div>
+        <div class="stat-tile"><div class="num" id="lec-groups"></div><div class="lbl">Groups</div></div>
+        <div class="stat-tile"><div class="num" id="lec-active-problems"></div><div class="lbl">Active problems</div></div>
+        <div class="stat-tile"><div class="num" id="lec-avg-progress"></div><div class="lbl">Avg. group progress</div></div>
+      </div>
+      <div class="grid grid-3" style="margin-bottom:20px;">
+        <div class="stat-tile"><div class="num" id="lec-participation"></div><div class="lbl">Participation rate</div></div>
+        <div class="stat-tile"><div class="num" id="lec-questions"></div><div class="lbl">Questions raised</div></div>
+        <div class="stat-tile"><div class="num" id="lec-gaps"></div><div class="lbl">Knowledge gaps identified</div></div>
+      </div>
+
+      <div class="card">
+        <h3>Group Monitoring</h3>
+        <table>
+          <thead><tr><th>Group</th><th>Students</th><th>Progress</th><th>Participation</th><th>Status</th></tr></thead>
+          <tbody id="lec-groups-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== PROBLEMS ===================== -->
+    <section class="view" id="view-problems">
+      <div class="card">
+        <h3>Problems / Tasks Created</h3>
+        <table>
+          <thead><tr><th>Problem</th><th>Domain</th><th>Groups assigned</th><th>Due</th></tr></thead>
+          <tbody>
+            <tr><td id="prob-title"></td><td id="prob-domain"></td><td>4</td><td id="prob-due"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== GROUPS ===================== -->
+    <section class="view" id="view-groups">
+      <div class="view-head">
+        <div><h2 style="margin:0;">Student Groups</h2><p>Click a group to see its detailed activity, discussion, and Assistant Agent observations.</p></div>
+      </div>
+      <div class="card">
+        <table>
+          <thead><tr><th>Group</th><th>Students</th><th>Progress</th><th>Participation</th><th>Status</th></tr></thead>
+          <tbody id="groups-table-full"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== GROUP DETAIL ===================== -->
+    <section class="view" id="view-group-detail">
+      <div class="view-head">
+        <div><h2 style="margin:0;" id="gd-name"></h2><p>Detailed monitoring view for this group.</p></div>
+        <button class="btn btn-outline btn-sm" data-goto="groups">← Back to Groups</button>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom:20px;">
+        <div class="card">
+          <h3>Progress</h3>
+          <div class="progress-track" style="margin-bottom:8px;"><div class="progress-fill" id="gd-progress-fill"></div></div>
+          <div class="card-row"><span class="label">Overall</span><span class="value" id="gd-progress-pct"></span></div>
+          <div class="card-row"><span class="label">Stage</span><span class="value" id="gd-stage"></span></div>
+        </div>
+        <div class="card">
+          <h3>Participation</h3>
+          <div class="card-row"><span class="label">Level</span><span class="value" id="gd-participation"></span></div>
+          <div class="card-row"><span class="label">Discussion activity</span><span class="value" id="gd-activity"></span></div>
+          <div class="card-row"><span class="label">Unanswered questions</span><span class="value" id="gd-unanswered"></span></div>
+        </div>
+        <div class="card">
+          <h3>Members</h3>
+          <div id="gd-members"></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-bottom:20px;">
+        <div class="card">
+          <h3>Discussion Excerpt</h3>
+          <div id="gd-discussion"></div>
+        </div>
+        <div class="card">
+          <h3>Assistant Agent Observations</h3>
+          <div id="gd-observations"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Submitted Solution &amp; Evaluation</h3>
+        <div class="solution-box" style="margin-bottom:16px;" id="gd-solution"></div>
+        <div class="score-hero" style="margin-bottom:12px;">
+          <div class="score-big" id="gd-score"></div>
+          <div><div style="font-weight:600;color:var(--ink);">Overall Score</div></div>
+        </div>
+        <div id="gd-rubric"></div>
+      </div>
+    </section>
+
+    <!-- ===================== STUDENT ACTIVITY ===================== -->
+    <section class="view" id="view-activity">
+      <div class="card">
+        <h3>Student Activity — Group Alpha</h3>
+        <div id="activity-members"></div>
+      </div>
+    </section>
+
+    <!-- ===================== AI INSIGHTS ===================== -->
+    <section class="view" id="view-insights">
+      <div class="proto-banner"><strong>Prototype simulation:</strong>&nbsp;insights below are generated from predefined mock data for demonstration.</div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="agent-header"><div class="agent-icon expert">E</div><h3 style="margin:0;">Expert Agent — Knowledge Gaps</h3></div>
+          <div id="insights-gaps"></div>
+        </div>
+        <div class="card">
+          <div class="agent-header"><div class="agent-icon assistant">A</div><h3 style="margin:0;">Assistant Agent — Group Observations</h3></div>
+          <div id="insights-observations"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVALUATIONS ===================== -->
+    <section class="view" id="view-evaluations">
+      <div class="card">
+        <h3>Submitted Solutions &amp; Evaluation Results</h3>
+        <table>
+          <thead><tr><th>Group</th><th>Score</th><th>Status</th></tr></thead>
+          <tbody id="evaluations-table"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================== RESOURCES ===================== -->
+    <section class="view" id="view-resources">
+      <div class="card">
+        <h3>Recommended Learning Resources Across Groups</h3>
+        <div id="lec-resources-grid" class="grid grid-3"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/ai-simulation.js"></script>
+<script src="js/lecturer.js"></script>
+</body>
+</html>

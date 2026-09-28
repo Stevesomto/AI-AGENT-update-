@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Student Portal — CoLearn AI (Prototype)</title>
+<link rel="stylesheet" href="css/student-log.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="back" href="index.html">← Back</a>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" role="tab" data-tab="tutoring">Intelligent Tutoring</button>
+    <button class="tab" role="tab" data-tab="progress">Latest Progress</button>
+    <button class="tab" role="tab" data-tab="multi">Multi-Agent Education</button>
+    <button class="tab" role="tab" data-tab="test">Test Questions</button>
+    <button class="tab" role="tab" data-tab="groupeval">Group Evaluation</button>
+  </nav>
+  <div class="top-right">
+    <span id="clock"></span>
+    <a class="switch-btn" href="lecturer.html">Switch</a>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="proto-note"><strong>Prototype simulation:</strong> all agent replies, scores and feedback on this page are predefined sample data. No live AI model or backend is connected.</div>
+
+  <!-- Intelligent Tutoring: Expert Agent -->
+  <section class="panel active" id="panel-tutoring">
+    <h2 class="panel-title">Intelligent Tutoring — Expert Agent</h2>
+    <p class="panel-sub">Ask the Expert Agent about the problem <em>“Design a Database System for University Course Registration.”</em> Each exchange is logged as a numbered turn.</p>
+    <div id="log-tutoring"></div>
+    <div class="composer">
+      <div class="quick" id="quick-tutoring"></div>
+      <div class="composer-row">
+        <input id="input-tutoring" type="text" placeholder="Ask the Expert Agent a question..." aria-label="Question for the Expert Agent">
+        <button class="btn" id="send-tutoring">Ask</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Progress: Assistant Agent -->
+  <section class="panel" id="panel-progress">
+    <h2 class="panel-title">Latest Progress — Assistant Agent</h2>
+    <p class="panel-sub">The Assistant Agent facilitates collaboration: it assigns roles, gives personalized feedback and summarizes the group's process on request.</p>
+    <div id="log-progress"></div>
+    <div class="composer">
+      <div class="quick" id="quick-progress"></div>
+      <div class="composer-row">
+        <input id="input-progress" type="text" placeholder="Message the Assistant Agent (try “Summary”)..." aria-label="Message for the Assistant Agent">
+        <button class="btn" id="send-progress">Send</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Agent Education: combined timeline -->
+  <section class="panel" id="panel-multi">
+    <h2 class="panel-title">Multi-Agent Education — Combined Timeline</h2>
+    <p class="panel-sub">Both agents' interactions in one chronological view: the Expert Agent supports subject knowledge, the Assistant Agent supports the collaborative process.</p>
+    <div id="log-multi"></div>
+  </section>
+
+  <!-- Test Questions -->
+  <section class="panel" id="panel-test">
+    <h2 class="panel-title">Test Questions</h2>
+    <p class="panel-sub">A short knowledge check. The Expert Agent marks it and returns personalized feedback, suggestions and resource recommendations.</p>
+    <div class="quiz-grid">
+      <div class="sheet" id="test-sheet"></div>
+      <div class="sheet fb" id="test-feedback"></div>
+    </div>
+  </section>
+
+  <!-- Group Evaluation -->
+  <section class="panel" id="panel-groupeval">
+    <h2 class="panel-title">Group Evaluation</h2>
+    <p class="panel-sub">Simulated Expert Agent evaluation of every group's submitted solution, weighted by the rubric below. Your group is highlighted.</p>
+    <div class="muted-scroll"><table class="eval-table" id="eval-table"></table></div>
+    <div class="eval-notes" id="eval-notes"></div>
+  </section>
+</main>
+
+<script src="js/log-data.js"></script>
+<script src="js/student.js"></script>
+</body>
+</html>
