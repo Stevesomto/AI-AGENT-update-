@@ -1,8 +1,11 @@
 /* ===========================================================
    LOG-DATA.JS — mock data for the student interaction-log UI.
    Prototype only: every "agent reply" below is predefined.
+<<<<<<< HEAD
    Domain: Robotics Programming (autonomous line-following
    robot with obstacle avoidance).
+=======
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
    =========================================================== */
 
 const LOG_STUDENTS = {
@@ -18,12 +21,18 @@ const CURRENT_USER = "Stephen";
 const TUTORING_LOG = [
   {
     turn: 1, ts: "2025-04-07 20:10", agent: "expert", user: "Stephen",
+<<<<<<< HEAD
     student: "How do sensors, actuators, and the controller work together in our robot?",
     reply: "Robotics begins with the fundamentals of robotic systems — the relationship among controllers, sensors, actuators, power systems, software instructions, and environmental inputs. A robot receives information from its environment, processes that information through programmed logic, and produces appropriate physical responses. Before writing any code, make sure you can explain that loop for your own robot: what it senses, how it decides, and what it does.",
+=======
+    student: "What is the difference between a primary key and a foreign key?",
+    reply: "A primary key uniquely identifies each record in a table, while a foreign key creates a relationship between tables by referencing a key in another table.\n\nIn your registration system, Student.student_id would be a primary key, and Enrollment.student_id would be a foreign key referencing it.",
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
     note: "The expert agent answered the question."
   },
   {
     turn: 2, ts: "2025-04-07 20:14", agent: "expert", user: "Ada",
+<<<<<<< HEAD
     student: "How should I turn our line-following problem into pseudocode before coding it?",
     reply: "The basic programming concepts relevant to robotics are variables, data types, operators, input and output commands, conditional statements, loops, functions, and sequencing. Practise translating robotics problems into step-by-step procedures, flowcharts, pseudocode, and then executable programs. The emphasis throughout is on algorithm design, logical reasoning, and predicting the robot's behaviour before you run the code — not just writing something and seeing what happens.",
     note: "The expert agent answered the question."
@@ -32,10 +41,15 @@ const TUTORING_LOG = [
     turn: 3, ts: "2025-04-10 11:02", agent: "expert", user: "David",
     student: "How do I connect our IR sensor readings to the motors so the robot follows the line?",
     reply: "Sensor and actuator programming means programming common sensors — distance, light, touch, line, or motion sensors — and connecting those sensor readings to actuator responses such as motor movement, direction changes, stopping, signalling, or object manipulation. A good activity demonstrates how multiple hardware components interact within one complete robotic system, not just a single sensor–actuator pair in isolation.",
+=======
+    student: "How should a database for course registration be designed?",
+    reply: "Designing a course registration database is a multi-step process that combines requirements analysis, conceptual modelling and careful constraint design. The main steps are as follows:\n1. Requirements Analysis\nClarify Objectives: Determine what must be recorded (students, courses, semesters, grades) and who will use the data.\nIdentify Rules: e.g. prerequisites, credit limits, course capacity.\n2. Entity Identification\nCore entities: Student, Course, Department, Enrollment. Supporting entity: Prerequisite (self-referencing on Course).\n3. Relationship Mapping\nStudent–Course is many-to-many, resolved with an Enrollment join table holding student_id and course_id.\n4. Normalization\nRemove repeating groups (1NF), partial dependencies (2NF) and transitive dependencies (3NF).\n5. Constraints\nPrimary keys, foreign keys, UNIQUE(student_id, course_id, semester), CHECK(credit_units > 0).",
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
     note: "The expert agent answered the question."
   }
 ];
 
+<<<<<<< HEAD
 /* Keyword-matched replies for newly asked questions. */
 const EXPERT_QA = [
   { keywords: ["sensor", "actuator", "controller", "fundamentals"], reply: "Robotics begins with the fundamentals of robotic systems — the relationship among controllers, sensors, actuators, power systems, software instructions, and environmental inputs. A robot receives information from its environment, processes that information through programmed logic, and produces appropriate physical responses. Before writing any code, make sure you can explain that loop for your own robot: what it senses, how it decides, and what it does." },
@@ -54,6 +68,22 @@ const EXPERT_QUICK = [
   "What types of errors can occur in a robot program?",
   "How do I compare two algorithms for the same task?",
   "By the end of this, what should I be able to do?"
+=======
+/* Keyword-matched replies for newly asked questions */
+const EXPERT_QA = [
+  { keywords: ["primary key", "foreign key"], reply: "A primary key uniquely identifies each record in a table, while a foreign key creates a relationship between tables by referencing a key in another table." },
+  { keywords: ["normaliz", "normal form", "1nf", "2nf", "3nf"], reply: "Normalization organizes tables to reduce redundancy and avoid update anomalies, moving step by step through the normal forms.\n1NF: atomic values, no repeating groups.\n2NF: no partial dependency on part of a composite key.\n3NF: no transitive dependency between non-key columns.\nExample: moving course title out of Enrollment and into Course is a step toward 2NF." },
+  { keywords: ["many-to-many", "join table", "junction", "relationship"], reply: "A many-to-many relationship, such as students enrolling in many courses and courses having many students, is modelled with a join (junction) table.\nExample: Enrollment(student_id, course_id, semester) with a composite key resolves the Student–Course relationship." },
+  { keywords: ["constraint", "unique", "check"], reply: "Constraints enforce data integrity. Common types are NOT NULL, UNIQUE, CHECK and FOREIGN KEY.\nExample: UNIQUE(student_id, course_id, semester) prevents a student enrolling twice in the same course in the same semester." },
+  { keywords: ["resource", "read", "learn"], reply: "Recommended next: Introduction to Database Normalization, First Normal Form (1NF), Second Normal Form (2NF) and Entity Relationship Modelling. These target the gaps identified in your last test." }
+];
+const EXPERT_DEFAULT_REPLY = "That is a good question to bring to your group as well. Based on the problem statement, focus first on identifying your core entities (Student, Course, Enrollment) before working on edge cases.";
+const EXPERT_QUICK = [
+  "What is database normalization?",
+  "How do I handle a many-to-many relationship?",
+  "What constraints should Enrollment have?",
+  "Recommend resources"
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 ];
 
 /* ---- Latest Progress: Assistant Agent log ---- */
@@ -79,15 +109,22 @@ const PROGRESS_LOG = [
 ];
 
 const GROUP_STATS = {
+<<<<<<< HEAD
   topics: "Sensors and actuators, translating problems into pseudocode, state-based behaviour (FOLLOW_LINE, AVOID_OBSTACLE, LOST_LINE), debugging sensor noise, comparing algorithms for reliability",
   conversations: { Stephen: 24, Ada: 31, Chinedu: 9, David: 36 },
   keywords: [["Sensors", 18], ["State machine", 14], ["Debugging", 12], ["Actuators", 9], ["Calibration", 6]]
+=======
+  topics: "Entities and attributes, primary and foreign keys, many-to-many relationships, join tables, normalization (1NF, 2NF), constraints",
+  conversations: { Stephen: 24, Ada: 31, Chinedu: 9, David: 36 },
+  keywords: [["Entities", 18], ["Relationships", 14], ["Foreign key", 12], ["Normalization", 9], ["Constraints", 6]]
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 };
 
 function summaryText() {
   const total = Object.values(GROUP_STATS.conversations).reduce((a, b) => a + b, 0);
   const per = Object.entries(GROUP_STATS.conversations).map(([n, c]) => `${n}: ${c}`).join("\n");
   const kw = GROUP_STATS.keywords.map(([k, c]) => `"${k}": ${c}`).join("\n");
+<<<<<<< HEAD
   return `The current group has engaged in collaborative problem-solving centred on the following topics: "${GROUP_STATS.topics}."\n\nNumber of conversations: ${total}\nNumber of conversations with each student:\n${per}\n\nKeywords and their frequencies:\n${kw}\n\nObservation: actuator responses have been discussed less than sensor readings. Chinedu has contributed the least so far.`;
 }
 function feedbackText() {
@@ -96,6 +133,16 @@ function feedbackText() {
 const ASSISTANT_NUDGES = [
   "Three group members have not contributed to the discussion recently. Consider inviting them to share their view.",
   "Your group has discussed sensor readings but has not yet addressed how actuators should respond to them.",
+=======
+  return `The current group has engaged in collaborative problem-solving centred on the following topics: "${GROUP_STATS.topics}."\n\nNumber of conversations: ${total}\nNumber of conversations with each student:\n${per}\n\nKeywords and their frequencies:\n${kw}\n\nObservation: relationships between entities have been discussed less than entities themselves. Chinedu has contributed the least so far.`;
+}
+function feedbackText() {
+  return "Stephen: You asked well-targeted questions about prerequisites and moved the group forward. Keep sharing your reasoning openly.\n\nAda: You were very active and put forward many insights, especially on normalization. Your enthusiasm is a driving force for the group. Keep it up!\n\nChinedu: Although you have not spoken much recently, your earlier point about constraints was valuable. We hope you will share more of your ideas.\n\nDavid: You spoke the most and gave in-depth analyses of relationships and join tables. Please also leave room for quieter teammates.";
+}
+const ASSISTANT_NUDGES = [
+  "Three group members have not contributed to the discussion recently. Consider inviting them to share their view.",
+  "Your group has discussed database entities but has not yet addressed relationships between them.",
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
   "Consider reviewing the requirements once more before proceeding to implementation.",
   "There are 2 unanswered questions in the discussion. Would someone like to respond?"
 ];
@@ -104,6 +151,7 @@ const ASSISTANT_QUICK = ["Summary", "Feedback", "Any suggestions for my group?"]
 /* ---- Test Questions ---- */
 const TEST = {
   questions: [
+<<<<<<< HEAD
     { q: "Which statement best describes the relationship between a robot's controller and its sensors?", opts: ["The controller ignores sensor input once the program starts", "The controller processes sensor input to decide what action to take", "Sensors control the actuators directly, with no controller involved", "Sensors only work after the actuators have moved"], answer: 1, chosen: 1 },
     { q: "Which technique helps you predict a robot's behaviour before running the code?", opts: ["Debugging after the robot fails", "Writing pseudocode or a flowchart first", "Skipping algorithm design to save time", "Guessing the outcome and testing later"], answer: 1, chosen: 0 },
     { q: "Which of the following best describes actuator programming?", opts: ["Reading a value from the environment", "Storing a value in a variable", "Turning a decision into movement, a signal, or an action", "Comparing two sensor readings"], answer: 2, chosen: 2 },
@@ -112,6 +160,16 @@ const TEST = {
   ],
   suggestions: "Based on your test results, you still need to further improve your understanding of algorithm design (translating problems into pseudocode) and diagnosing hardware-integration errors. Please continue to actively participate in collaborative problem-solving, delve more deeply into the relevant knowledge, and strengthen your understanding.",
   resources: "Weakness identification: Algorithm design and pseudocode; hardware-integration debugging\nInterdisciplinary connection: Electronics and control systems (how sensor and actuator behaviour maps to program logic)\nLearning progress diagnosis: Progress is largely aligned with the instructional goal\nStage-specific suggestions: Review translating problems into flowcharts/pseudocode and the systematic debugging process before the Review stage"
+=======
+    { q: "Which statement best describes a foreign key?", opts: ["A column that uniquely identifies every row", "A column that references a key in another table", "A column that stores only numeric values", "A column that is never allowed to be NULL"], answer: 1, chosen: 1 },
+    { q: "Which normal form removes partial dependencies on a composite key?", opts: ["First normal form (1NF)", "Second normal form (2NF)", "Third normal form (3NF)", "Boyce-Codd normal form"], answer: 1, chosen: 0 },
+    { q: "How is a many-to-many relationship implemented in a relational database?", opts: ["A larger primary key", "A duplicate column in each table", "A join (junction) table", "A view"], answer: 2, chosen: 2 },
+    { q: "Which constraint prevents duplicate values across a combination of columns?", opts: ["CHECK", "UNIQUE", "DEFAULT", "NOT NULL"], answer: 1, chosen: 0 },
+    { q: "What does a CHECK constraint do?", opts: ["Speeds up queries", "Encrypts a column", "Restricts values to a condition", "Deletes orphan rows"], answer: 2, chosen: 2 }
+  ],
+  suggestions: "Based on your test results, you still need to further improve your understanding of normalization stages and uniqueness constraints. Please continue to actively participate in collaborative problem-solving, delve more deeply into the relevant knowledge, and strengthen your understanding.",
+  resources: "Weakness identification: Second normal form (2NF); UNIQUE constraints\nInterdisciplinary connection: Software engineering (schema design and data integrity in application development)\nLearning progress diagnosis: Progress is largely aligned with the instructional goal\nStage-specific suggestions: Review Introduction to Database Normalization, Second Normal Form (2NF) and Database Constraints Explained before the Review stage"
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 };
 
 /* ---- Group Evaluation ---- */
@@ -120,8 +178,15 @@ const CRITERIA = [
   { name: "Originality", w: 20 }, { name: "Layout", w: 10 }
 ];
 const GROUP_EVAL = [
+<<<<<<< HEAD
   { group: "Group Alpha", me: true,  scores: [85, 80, 78, 82, 88], note: "Correct state transitions and a well-justified sensor debounce. Consider handling the case where both IR sensors lose the line at the same time as an obstacle appears." },
   { group: "Group Beta",  me: false, scores: [66, 62, 60, 65, 70], note: "Sensor readings are handled adequately, but actuator responses are rarely justified and several state transitions are only implied." },
   { group: "Group Gamma", me: false, scores: [93, 90, 90, 89, 92], note: "Comprehensive and well organized, with an explicit state diagram and clear rationale for each transition." },
   { group: "Group Delta", me: false, scores: [48, 45, 44, 50, 55], note: "Key state transitions are missing and sensor thresholds are undefined; revisit the requirements before continuing." }
+=======
+  { group: "Group Alpha", me: true,  scores: [85, 80, 78, 82, 88], note: "Strong technical correctness and a sensible self-referencing Prerequisite table. Consider addressing course capacity limits and waitlisting." },
+  { group: "Group Beta",  me: false, scores: [66, 62, 60, 65, 70], note: "Adequate structure, but design decisions are rarely justified and several relationships are only implied." },
+  { group: "Group Gamma", me: false, scores: [93, 90, 90, 89, 92], note: "Comprehensive and well organized, with explicit constraints and clear rationale for each table." },
+  { group: "Group Delta", me: false, scores: [48, 45, 44, 50, 55], note: "Key relationships are missing and entities are incompletely defined; revisit the requirements before continuing." }
+>>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 ];
