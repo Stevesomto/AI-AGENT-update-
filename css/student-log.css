@@ -6,19 +6,11 @@
 :root{
   --bar:#1F3A40; --bar-line:#2C5560;
   --tab:#5CC6DD; --tab-active:#FFFFFF;
-<<<<<<< HEAD
   --page:#F8F9FA ; --dot:#12110c;
   --card:#a1d3ec; --card-line:#C9C48B;
   --ink:#23293A; --mute:#5B6478; --red:#B33A3A;
   --expert:#2F6F62; --assistant:#B9791E;
   --serif:"Source Serif 4",Verdana, Geneva, Tahoma, sans-serif;
-=======
-  --page:#E9E4CF; --dot:#D5CEB0;
-  --card:#F3EFC7; --card-line:#C9C48B;
-  --ink:#23293A; --mute:#5B6478; --red:#B33A3A;
-  --expert:#2F6F62; --assistant:#B9791E;
-  --serif:"Source Serif 4",Georgia,"Times New Roman",serif;
->>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
   --sans:"IBM Plex Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box}
@@ -26,14 +18,9 @@ html,body{margin:0;padding:0}
 body{
   font-family:var(--sans); color:var(--ink); line-height:1.5; min-height:100vh;
   background-color:var(--page);
-<<<<<<< HEAD
   /* background-image:radial-gradient(var(--dot) 1px, transparent 1px); */
   background-size:18px 18px;
   
-=======
-  background-image:radial-gradient(var(--dot) 1px, transparent 1px);
-  background-size:18px 18px;
->>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 }
 button{font-family:inherit;cursor:pointer}
 :focus-visible{outline:2px solid #0B5C70;outline-offset:2px}
@@ -109,12 +96,8 @@ button{font-family:inherit;cursor:pointer}
 
 /* ---------- Composer ---------- */
 .composer{
-<<<<<<< HEAD
   margin-top:24px; padding:14px 16px; background:rgba(255,255,255,.55);
   border:1px solid var(--card-line); border-radius:8px;
-=======
-  position:sticky; bottom:0; margin-top:10px; padding:12px 0 6px; background:linear-gradient(transparent, var(--page) 30%);
->>>>>>> 473ccba51f23d5e365cec93b0189dcb6c27d4878
 }
 .composer-row{display:flex; gap:8px}
 .composer input{flex:1; padding:11px 14px; border:1px solid #9a9a9a; border-radius:6px; font-size:14.5px; font-family:var(--sans); background:#fff}
